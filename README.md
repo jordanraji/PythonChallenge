@@ -36,4 +36,4 @@ if __name__ == "__main__":
 
 ## Testing
 
-Run the following command: `python -m unittest /PATH/TO/PythonChallenge/tests/test_data_capure.py`
+Run the following command: `python -m unittest /PATH/TO/PythonChallenge/tests/test_data_capture.py`
