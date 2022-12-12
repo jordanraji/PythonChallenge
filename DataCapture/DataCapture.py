@@ -18,9 +18,9 @@ class Stats:
 
     def between(self, smaller_number: int, larger_number: int) -> int:
         return (
-            self.__length
-            - self.__data[smaller_number].less
-            - self.__data[larger_number].greater
+                self.__length
+                - self.__data[smaller_number].less
+                - self.__data[larger_number].greater
         )
 
     def greater(self, number: int) -> int:
@@ -36,9 +36,13 @@ class DataCapture:
     def add(self, number: int) -> None:
         if number > self.max_value:
             self.max_value = number
-        if number not in self.data:
-            self.data[number] = Node(count=0, less=0, greater=0)
-        self.data[number].count += 1
+        # if number not in self.data:
+        #     self.data[number] = Node(count=0, less=0, greater=0)
+        # self.data[number].count += 1
+        try:
+            self.data[number].count += 1
+        except:
+            self.data[number] = Node(count=1, less=0, greater=0)
         self.length += 1
 
     def build_stats(self) -> Stats:
@@ -50,6 +54,3 @@ class DataCapture:
                 self.data[number].greater = self.length - accum
 
         return Stats(self.data, self.length)
-
-
-
